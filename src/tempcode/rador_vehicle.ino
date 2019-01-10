@@ -30,25 +30,25 @@ Servo myservo;
 
 void setup() {
     /**************电机**********************/
-    pinMode(xyouIN1, OUTPUT); 
-    pinMode(xyouIN2, OUTPUT); 
-    pinMode(xzuoIN3, OUTPUT); 
-    pinMode(xzuoIN4, OUTPUT); 
-    pinMode(xyoupwmENA, OUTPUT); 
+    pinMode(xyouIN1, OUTPUT);
+    pinMode(xyouIN2, OUTPUT);
+    pinMode(xzuoIN3, OUTPUT);
+    pinMode(xzuoIN4, OUTPUT);
+    pinMode(xyoupwmENA, OUTPUT);
     pinMode(xzuopwmENB, OUTPUT);
 
-    pinMode(syouIN1, OUTPUT); 
-    pinMode(syouIN2, OUTPUT); 
-    pinMode(szuoIN3, OUTPUT); 
-    pinMode(szuoIN4, OUTPUT); 
-    pinMode(syoupwmENA, OUTPUT); 
+    pinMode(syouIN1, OUTPUT);
+    pinMode(syouIN2, OUTPUT);
+    pinMode(szuoIN3, OUTPUT);
+    pinMode(szuoIN4, OUTPUT);
+    pinMode(syoupwmENA, OUTPUT);
     pinMode(szuopwmENB, OUTPUT);
     /****************舵机******************/
     myservo.attach(PIN_SERVO);  //舵机初始化
 
     /*************************************/
-    pinMode(TrigPin, OUTPUT); 
-    pinMode(EchoPin, INPUT); 
+    pinMode(TrigPin, OUTPUT);
+    pinMode(EchoPin, INPUT);
     Serial.begin(9600);
     //myservo.write(82);//舵机向前
 }
@@ -118,7 +118,7 @@ void loop() {
     motorRun(FORWARD, 150);
     myservo.write(82); //舵机向中间
     dis[1] = ceju();
-    Serial.println(dis[1]); 
+    Serial.println(dis[1]);
 
     if (dis[1] < 30) {
         motorRun(STOP, 0);
@@ -151,14 +151,14 @@ void loop() {
 
 /*************超声波代码*******************/
 int ceju() {
-    digitalWrite(TrigPin, LOW); //低高低电平发一个短时间脉冲去TrigPin 
-    delayMicroseconds(2); 
-    digitalWrite(TrigPin, HIGH); 
-    delayMicroseconds(10); 
-    digitalWrite(TrigPin, LOW); 
+    digitalWrite(TrigPin, LOW); //低高低电平发一个短时间脉冲去TrigPin
+    delayMicroseconds(2);
+    digitalWrite(TrigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(TrigPin, LOW);
 
-    cm = pulseIn(EchoPin, HIGH) / 58.0; //将回波时间换算成cm 
-    cm = (int(cm * 100.0)) / 100.0; //保留两位小数 
+    cm = pulseIn(EchoPin, HIGH) / 58.0; //将回波时间换算成cm
+    cm = (int(cm * 100.0)) / 100.0; //保留两位小数
     if (cm >= 50) {
         //如果距离小于50厘米返回数据
         return 50;
