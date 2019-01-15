@@ -16,7 +16,7 @@ void setup() {
 
 void loop() {
     Mirf.setTADDR((byte*)"FGHIJ");           //设置接收端地址
-    value = random(255);                      //0-255的随机数
+    //value = random(255);                      //0-255的随机数
     value = 205;
     Mirf.send((byte*)&value);                //发送指令，发送随机数value
     while(Mirf.isSending()) {
