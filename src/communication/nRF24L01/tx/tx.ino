@@ -2,9 +2,9 @@
 #include <Mirf.h>
 #include <nRF24L01.h>
 #include <MirfHardwareSpiDriver.h>
- 
+
 int value;
- 
+
 void setup() {
     Mirf.spi = &MirfHardwareSpi;
     Mirf.init();
@@ -17,6 +17,7 @@ void setup() {
 void loop() {
     Mirf.setTADDR((byte*)"FGHIJ");           //设置接收端地址
     value = random(255);                      //0-255的随机数
+    value = 205;
     Mirf.send((byte*)&value);                //发送指令，发送随机数value
     while(Mirf.isSending()) {
         delay(1);         //直到发送成功，退出循环

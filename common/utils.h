@@ -23,24 +23,24 @@ public:
     static void up(int n)                 { digitalWrite(n, HIGH); }
     static void down(int n)               { digitalWrite(n, LOW); }
     static int  levelOfPin(int n)         { return digitalRead(n); }
-    static void upall(int num, ...)          {
+    static void upall(int num, ...) {
         va_list args;
         va_start(args, num);
         pinSet(HIGH, num, args);
         va_end(args);
     }
-    static void downall(int num, ...)        {
+    static void downall(int num, ...) {
         va_list args;
         va_start(args, num);
         pinSet(LOW, num, args);
-        va_end(args);  
+        va_end(args);
     }
-    static void rangeUp(int m, int n)     {
+    static void rangeUp(int m, int n) {
         for (int i = m; i < n; ++i) {
             up(i);
         }
     }
-    static void rangeDown(int m, int n)     {
+    static void rangeDown(int m, int n) {
         for (int i = m; i < n; ++i) {
             down(i);
         }
