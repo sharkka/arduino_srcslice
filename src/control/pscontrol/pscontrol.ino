@@ -21,13 +21,13 @@ byte type = 0;         //ps2x.readType()转换判别标志
 byte vibrate = 0;
 int banduan = 0;
 
-void setup(){
+void setup() {
     Serial.begin(57600);
     //CHANGES for v1.6 HERE!!! **************PAY ATTENTION*************
     //setup pins and settings:  GamePad(clock, command, attention, data, Pressures?, Rumble?) check for error
     error = ps2x.config_gamepad(PS2_DAT, PS2_CMD, PS2_SEL, PS2_CLK, true, true);
     //检查引脚是否有连接错误 
-    if (error == 0){
+    if (error == 0) {
         //0号错误的串口提示信息
         Serial.println("Found Controller, configured successful");
         Serial.println("Try out all the buttons, X will vibrate the controller, faster as you press harder;");
@@ -36,16 +36,16 @@ void setup(){
     } else if(error == 1) {
         //1号错误的串口提示信息
         Serial.println("No controller found, check wiring, see readme.txt to enable debug. visit [url]www*billporter*info[/url] for troubleshooting tips");
-    } else if(error == 2) {
+    } else if (error == 2) {
         //2号错误的串口提示信息
         Serial.println("Controller found but not accepting commands. see readme.txt to enable debug. Visit [url]www*billporter*info[/url] for troubleshooting tips");
-    } else if(error == 3) {
+    } else if (error == 3) {
         //3号错误的串口提示信息
         Serial.println("Controller refusing to enter Pressures mode, may not support it. ");
     }
     //Serial.print(ps2x.Analog(1), HEX);
     type = ps2x.readType();    //正确连接后串口提示的信息
-    switch(type) {
+    switch (type) {
         case 0:
             Serial.println("Unknown Controller type");
             break;
