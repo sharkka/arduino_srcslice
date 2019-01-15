@@ -1,3 +1,7 @@
+/**
+ *  library github: https://github.com/madsci1016/Arduino-PS2X.git
+ */
+
 #include <PS2X_lib.h>  //for v1.6
 
 PS2X ps2x; // create PS2 Controller Class

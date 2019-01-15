@@ -1,3 +1,7 @@
+/**
+ *  Mirf github: https://github.com/E-elektronic/Mirf.git
+ */
+
 #include <SPI.h>
 #include <Mirf.h>
 #include <nRF24L01.h>
