@@ -11,19 +11,23 @@ int PS_LX;//PS2手柄左摇杆X轴数据
 int PS_LY;//PS2手柄左摇杆Y轴数据
 int PS_RX;//PS2手柄右摇杆X轴数据
 int PS_RY;//PS2手柄右摇杆Y轴数据
+#define PS2_DAT        13  //14    
+#define PS2_CMD        11  //15
+#define PS2_SEL        10  //16
+#define PS2_CLK        12  //17
 
 int error = 0;         //连接正确与否的判断标志
 byte type = 0;         //ps2x.readType()转换判别标志     
 byte vibrate = 0;
-int banduan=0;
+int banduan = 0;
 
 void setup(){
     Serial.begin(57600);
     //CHANGES for v1.6 HERE!!! **************PAY ATTENTION*************
     //setup pins and settings:  GamePad(clock, command, attention, data, Pressures?, Rumble?) check for error
-    error = ps2x.config_gamepad(13, 11, 10, 12, true, true);
+    error = ps2x.config_gamepad(PS2_DAT, PS2_CMD, PS2_SEL, PS2_CLK, true, true);
     //检查引脚是否有连接错误 
-    if(error == 0){
+    if (error == 0){
         //0号错误的串口提示信息
         Serial.println("Found Controller, configured successful");
         Serial.println("Try out all the buttons, X will vibrate the controller, faster as you press harder;");
@@ -51,7 +55,7 @@ void setup(){
         case 2:
             Serial.println("GuitarHero Controller Found");
             break;
-     }
+    }
 }
 
 void loop() {
