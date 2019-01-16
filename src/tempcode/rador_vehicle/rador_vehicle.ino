@@ -6,30 +6,30 @@
 #define BACKWARD  2
 #define TURNLEFT  3
 #define TURNRIGHT 4
-/*************电机******************/
-int xyouIN1 = 4;//下L298
+// 电机
+int xyouIN1 = 4; // 下L298
 int xyouIN2 = 18;
 int xzuoIN3 = 12;
 int xzuoIN4 = 13;
 int xyoupwmENA = 3;
 int xzuopwmENB = 5;
 
-int syouIN1 = 14;//上L298
+int syouIN1 = 14; // 上L298
 int syouIN2 = 15;
 int szuoIN3 = 16;
 int szuoIN4 = 17;
 int syoupwmENA = 6;
 int szuopwmENB = 11;
 
-/***************超声波*********************/
+// 超声波
 const int TrigPin = 7;
 const int EchoPin = 8;
 float cm;
-/***************舵机*******************/
+// 舵机
 Servo myservo;
 
 void setup() {
-    /**************电机**********************/
+    // 电机
     pinMode(xyouIN1, OUTPUT);
     pinMode(xyouIN2, OUTPUT);
     pinMode(xzuoIN3, OUTPUT);
