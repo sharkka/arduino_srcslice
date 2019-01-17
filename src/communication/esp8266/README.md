@@ -1,7 +1,7 @@
 
 * WIFI module
 
-** ESP8266 environment prepare(also you can follow the esp8266 github readme step by step.)
+**  ESP8266 environment prepare(also you can follow the esp8266 github readme step by step.)
 
 Windows:  
 ================================  
@@ -26,11 +26,11 @@ Linux:
 + cd esp8266/tools  
 + python2.7 get.py  
 
-++ Now restart your Arduino IDE
+++  Now restart your Arduino IDE
 
 Done.
 
-** sharkka
+**  sharkka
 
-** 4857366@qq.com  
-** 2019/1/16 17:57:23  
+**  4857366@qq.com  
+**  2019/1/16 17:57:23  
