@@ -24,7 +24,7 @@ Linux:
 (Be sure use Python 2.7 version)  
 + cd esp8266/tools  
 + python2.7 get.py   
-++  Now restart your Arduino IDE
+**  Now restart your Arduino IDE **
 
 Done.  
 * sharkka  
