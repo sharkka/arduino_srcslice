@@ -10,6 +10,7 @@
 typedef struct _joytick_ctrl_t {
     int rx;
     int ry;
+    int rz;
     bool brake;
 } joytick_ctrl_t;
 
@@ -31,7 +32,7 @@ void loop() {
         Mirf.getData((byte*)&ct);
         Serial.print("Got data: -- ");
         char buff[64] = {0};
-        sprintf(buff, "Joy Tick rx: %d, ry: %d\nbrake: %s",ct.rx, ct.ry, (ct.brake ? "YES" : "NO"));
+        sprintf(buff, "Joy Tick rx: %d, ry: %d, rz: %d\nbrake: %s",ct.rx, ct.ry, ct.rz, (ct.brake ? "YES" : "NO"));
         Serial.println(buff);
     }
 }
