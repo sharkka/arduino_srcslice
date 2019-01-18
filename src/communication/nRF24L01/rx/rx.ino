@@ -7,14 +7,20 @@
 #include <nRF24L01.h>
 #include <MirfHardwareSpiDriver.h>
 
-int value;
+typedef struct _joytick_ctrl_t {
+    int rx;
+    int ry;
+    bool brake;
+} joytick_ctrl_t;
+
+joytick_ctrl_t ct;
 
 void setup() {
     Serial.begin(9600);
     Mirf.spi = &MirfHardwareSpi;
     Mirf.init();
     Mirf.setRADDR((byte*)"FGHIJ"); //设置自己的地址（接收端地址），使用5个字符
-    Mirf.payload = sizeof(value);   
+    Mirf.payload = sizeof(joytick_ctrl_t);   
     Mirf.channel = 90;   //设置使用的信道
     Mirf.config(); 
     Serial.println("Listening...");  //开始监听接收到的数据
@@ -22,8 +28,10 @@ void setup() {
 
 void loop() {
     if (Mirf.dataReady()) {  //当接收到程序，便从串口输出接收到的数据
-        Mirf.getData((byte*)&value);
-        Serial.print("Got data: ");
-        Serial.println(value);
+        Mirf.getData((byte*)&ct);
+        Serial.print("Got data: -- ");
+        char buff[64] = {0};
+        sprintf(buff, "Joy Tick rx: %d, ry: %d\nbrake: %s",ct.rx, ct.ry, (ct.brake ? "YES" : "NO"));
+        Serial.println(buff);
     }
 }
