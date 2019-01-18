@@ -16,6 +16,15 @@ typedef struct _joytick_ctrl_t {
 
 joytick_ctrl_t ct;
 
+int buildinLed = 17;
+
+void blinkLed(int k) {
+    if (k%2)
+        digitalWrite(buildinLed, HIGH);
+    else
+        digitalWrite(buildinLed, LOW);
+}
+
 void setup() {
     Serial.begin(9600);
     Mirf.spi = &MirfHardwareSpi;
@@ -34,5 +43,6 @@ void loop() {
         char buff[64] = {0};
         sprintf(buff, "Joy Tick rx: %d, ry: %d, rz: %d\nbrake: %s",ct.rx, ct.ry, ct.rz, (ct.brake ? "YES" : "NO"));
         Serial.println(buff);
+        blinkLed(ct.rx);
     }
 }

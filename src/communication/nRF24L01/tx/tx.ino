@@ -16,6 +16,15 @@ typedef struct _joytick_ctrl_t {
 
 joytick_ctrl_t ct;
 
+int buildinLed = 6;
+
+void blinkLed(int n) {
+    digitalWrite(buildinLed, HIGH);
+    delay(n % 30);
+    digitalWrite(buildinLed, LOW);
+    delay(n % 30);
+}
+
 void setup() {
     Mirf.spi = &MirfHardwareSpi;
     Mirf.init();
@@ -28,6 +37,7 @@ void setup() {
     Mirf.channel = 90;              //设置所用信道
     Mirf.config();
     Serial.begin(9600);
+    pinMode(buildinLed, OUTPUT);
 }
 
 int rx = 0;
@@ -46,6 +56,7 @@ void loop() {
     while(Mirf.isSending()) {
         delay(1);         //直到发送成功，退出循环
     }
+    blinkLed(rx);
     delay(10);
     Serial.println("Send success, ");
     //Serial.println(ct);
