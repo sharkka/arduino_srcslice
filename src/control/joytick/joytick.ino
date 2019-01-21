@@ -22,5 +22,5 @@ void loop(void) {
 
     Serial.print("BUTTON state = ");
     Serial.println(digitalRead(BUTTON));
-    delay(100);
+    delay(30);
 }
