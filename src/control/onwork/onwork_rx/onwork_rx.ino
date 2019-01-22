@@ -131,7 +131,7 @@ void loop() {
         sprintf(buff, "Joy Tick rx: %d, ry: %d, rz: %d\nbrake: %s",ct.rx, ct.ry, ct.rz, (ct.brake ? "YES" : "NO"));
         Serial.println(buff);
         controlSteeringEngine(ct.rx);
-        controlSteeringEngine(ct.ry);
+        controlMotionEngine(ct.ry);
         controlBrakeSystem(ct.state);
     }
 }

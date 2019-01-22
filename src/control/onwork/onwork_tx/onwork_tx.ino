@@ -26,9 +26,9 @@ typedef struct _joytick_ctrl_t {
     bool brake;
 } joytick_ctrl_t;
 
-static int buildinLed = 6;
-static int rx = A0;
-static int ry = A1;
+static int buildinLed  = 6;
+static int jtPinRx     = A0;
+static int jtPinRy     = A1;
 static int buttonState = 7;
 
 /**
@@ -75,11 +75,11 @@ static void confignRF24L01() {
  */
 static void send(joytick_ctrl_t* data) {
     Mirf.setTADDR((byte*)"FGHIJ");
-    Mirf.send((byte*)&data);
+    Mirf.send((byte*)data);
     while(Mirf.isSending()) {
         delay(1);
     }
-    blinkLed(rx);
+    blinkLed(buildinLed);
     delay(1);
     Serial.println("Send success, ");
     //Serial.println(ct);
@@ -109,8 +109,8 @@ void setup(void) {
  */
 void loop(void) {
     joytick_ctrl_t ct;
-    ct.rx = analogRead(rx);
-    ct.ry = analogRead(ry);
+    ct.rx = analogRead(jtPinRx);
+    ct.ry = analogRead(jtPinRy);
     ct.rz = 0;
     ct.state = digitalRead(buttonState);
     send(&ct);
