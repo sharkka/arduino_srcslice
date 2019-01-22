@@ -12,9 +12,9 @@
 
 /**
  * @Brief    joytick_ctrl_t
- * @Class    simple commandline utils
- * @DateTime 2018-07-16T17:28:23+0800
- * @Modify   2018-07-16T17:28:23+0800
+ * @Class    joytick sensor packet
+ * @DateTime 2019/1/22 17:53:59
+ * @Modify   2019/1/22 17:54:04
  * @Author   Anyz
  * @Keyword
  */

@@ -11,6 +11,14 @@
 #include <MirfHardwareSpiDriver.h>
 #include <Servo.h>
 
+/**
+ * @Brief    joytick_ctrl_t
+ * @Class    joytick sensor packet
+ * @DateTime 2019/1/22 17:53:59
+ * @Modify   2019/1/22 17:54:04
+ * @Author   Anyz
+ * @Keyword
+ */
 typedef struct _joytick_ctrl_t {
     int rx;
     int ry;
@@ -25,6 +33,8 @@ static int motorRPinPwm = 11;
 static int motorLPinPwm = 12;
 static int motorREnable = 13;
 static int motorLEnable = 14;
+static int alarmRis     = 15;
+static int alarmLis     = 16;
 static Servo steeringServo;
 
 /**
