@@ -7,8 +7,8 @@ Windows:
 + Enter windows cmd  
 + cd .../Arduino/hardware  
 + mkdir esp8266com  
-+ cd esp8266  
 + git clone https://github.com/esp8266/Arduino.git esp8266
++ cd esp8266  
 
 **(Be sure use Python 2.7 version)**
 + cd esp8266/tools  
@@ -18,8 +18,8 @@ Linux:
 ================================  
 + cd .../Arduino/hardware  
 + mkdir esp8266com  
-+ cd esp8266  
 + git clone https://github.com/esp8266/Arduino.git esp8266
++ cd esp8266  
 
 (Be sure use Python 2.7 version)  
 + cd esp8266/tools  
