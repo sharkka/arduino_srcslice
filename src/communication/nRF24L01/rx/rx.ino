@@ -11,6 +11,7 @@ typedef struct _joytick_ctrl_t {
     int rx;
     int ry;
     int rz;
+    int state;
     bool brake;
 } joytick_ctrl_t;
 
