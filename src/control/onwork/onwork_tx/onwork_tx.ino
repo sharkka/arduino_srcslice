@@ -114,12 +114,9 @@ void loop(void) {
     ct.rz = 0;
     ct.state = digitalRead(buttonState);
     send(&ct);
-    Serial.print("X = ");
-    Serial.print(ct.rx);
-    Serial.print(", ");
-    Serial.print("Y = ");
-    Serial.print(ct.ry);
-    Serial.print(", ");
+    char buff[64] = {0};
+    sprintf(buff, "x = %d, y = %d, z = %d, state: %d", ct.rx, ct.ry, ct.rz, ct.state);
+    Serial.println(buff);
     Serial.print("BUTTON state = ");
     Serial.println(ct.state);
     delay(2);
