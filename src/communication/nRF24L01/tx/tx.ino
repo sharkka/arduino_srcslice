@@ -59,6 +59,14 @@ void loop() {
     }
     blinkLed(rx);
     delay(10);
+    Serial.print(ct.rx);
+    Serial.print("  , ");
+    Serial.print(ct.ry);
+    Serial.print("  , ");
+    Serial.print(ct.rz);
+    Serial.print("  , ");
+    Serial.print(ct.state);
+    Serial.print("  , ");
     Serial.println("Send success, ");
     //Serial.println(ct);
 }

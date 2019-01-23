@@ -1,5 +1,7 @@
 
 int motorPwm = 10;
+int minVolt = 210;
+int maxVolt = 1000;
 
 void setup() {
 
@@ -8,13 +10,13 @@ void setup() {
 }
 
 void loop() {
-    for (int i = 300; i < 1000; ++i) {
+    for (int i = minVolt; i < maxVolt; ++i) {
         analogWrite(motorPwm, map(i, 0, 1023, 0, 255));
         delay(10);
         Serial.print("pwm puls: ");
         Serial.println(i);
     }
-    for (int i = 1000; i < 300; --i) {
+    for (int i = maxVolt; i < minVolt; --i) {
         analogWrite(motorPwm, map(i, 0, 1023, 0, 255));
         delay(10);
         Serial.print("pwm puls: ");

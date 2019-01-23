@@ -29,7 +29,7 @@ typedef struct _joytick_ctrl_t {
 static int buildinLed  = 6;
 static int jtPinRx     = A0;
 static int jtPinRy     = A1;
-static int buttonState = 7;
+static int buttonState = 2;
 
 /**
  * @Method   blinkLed

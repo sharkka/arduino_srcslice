@@ -42,7 +42,7 @@ void loop() {
         Mirf.getData((byte*)&ct);
         Serial.print("Got data: -- ");
         char buff[64] = {0};
-        sprintf(buff, "Joy Tick rx: %d, ry: %d, rz: %d\nbrake: %s",ct.rx, ct.ry, ct.rz, (ct.brake ? "YES" : "NO"));
+        sprintf(buff, "Joy Tick rx: %d, ry: %d, rz: %d\nbrake: %s",ct.rx, ct.ry, ct.rz, (ct.state ? "NO" : "YES"));
         Serial.println(buff);
         blinkLed(ct.rx);
     }
