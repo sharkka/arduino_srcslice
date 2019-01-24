@@ -127,7 +127,7 @@ mode:
    View WIFI mode, return +CWMODE:OK  
 ## 1. AT+CWMODE?
    Configure WIFI mode, return OK;  
-## 2. AT+CUMODE=  
+## 2. AT+CWMODE=  
    Instruction infected after reset,  
    mode:1.Station; 2.AP; 3.AP+Station;  
    station:client, AP: server;  
