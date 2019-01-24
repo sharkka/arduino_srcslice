@@ -33,17 +33,17 @@ Linux:
 
 For ESP8266-01S:  
 ==================================
-Pin Connection:
-ESP8266  |   CP2104
-+--------+----------+
-GND      --  GND
-GPIO2    --  OVERHANG
-GPIO0    --  GND
-URXD     --  RXD
-UTXD     --  TXD
-CH_PD    --  3.3v
-RST      --  OVERHANG
-VCC      --  3.3v
+Pin Connection:  
+ESP8266  |   CP2104  
++--------+----------+  
+GND      --  GND  
+GPIO2    --  OVERHANG  
+GPIO0    --  GND  
+URXD     --  RXD  
+UTXD     --  TXD  
+CH_PD    --  3.3v  
+RST      --  OVERHANG  
+VCC      --  3.3v  
 
 *** running mode PIO0 should be overhanged ***
 
@@ -67,17 +67,17 @@ VCC      --  3.3v
   Save ip and port configuration of transparent, service start on boot  
 * AT+SAVETRANSLINK=1,"192.168.4.1",8686,"TCP"  
   Now it is transparent mode  
-* AP+CIPSEND
+* AP+CIPSEND  
   not select CRLF, QUIT TRANS MODE  
-* +++
+* +++  
  
-* Un-Transparent mode, now it is not transparent mode    
-* AP+CIPSEND
+* Un-Transparent mode, now it is not transparent mode  
+* AP+CIPSEND  
 * AP+CIPSEND=0,10  
 
 ![Alt text](https://github.com/sharkka/arduino_srcslice/blob/master/src/communication/esp8266/ESP8266-01S.jpg?raw=true "ESP8266-01S")  
 
-*** ESP8266 AT Instructions ***
+*** ESP8266 AT Instructions ***  
 
 * AT+GMR           ----- view version  
 * AT+CWMODE=？     ----- supported mode list  
@@ -135,7 +135,7 @@ mode:
 　　Station Mode:  
     View current AP selected, return +CWJAP:OK  
 ## 3. AT+CWJAP?  
-## 4. AT+CWJAP="ssid","pwd": jon AP, return OK or ERROR;
+## 4. AT+CWJAP="ssid","pwd": jon AP, return OK or ERROR;  
    ssid: WIFI SSID, pwd: password of max 64 bytes ASCII  
 
 ## 5. AT+CWLAP: list current AP avaiable, return +CWLAP:OK/ERROR;  
@@ -159,7 +159,7 @@ ecn:
 
 ## 9. AT+CWLIF: view connected device ip, return OK  
 
-#　***TCP/IP toolbox AT instructions***
+#　***TCP/IP toolbox AT instructions***  
 ## 1. AT+CIPSTATUS: get connection status and parameter, return STATUS:+CIPSTATUS:, ”type”, ”addr”, OK;  
    id:  connection id 0~4;  
    type: TCP/UDP;  
@@ -167,7 +167,7 @@ ecn:
    port: port;  
    tetype: 0. module as client connection; 1. module as server connection;  
 
-## 2. single connection: AT+CIPSTART="type", "addr", :create TCP connection or UDP port, return OK/ERROR/ALREAY CONNECT;
+## 2. single connection: AT+CIPSTART="type", "addr", :create TCP connection or UDP port, return OK/ERROR/ALREAY CONNECT;  
    id:   connection id 0-4;  
    type: TCP/UDP;  
    addr: remote server IP address;  
@@ -179,14 +179,14 @@ ecn:
 ## 6. transparent mode: AT+CIPSEND: send data, 
    return CRLF, then enter transparent mode;  
    data packet seperate by 20ms, one packet with max 2048 bytes;  
-   when packet received with data ”+++” command, return to command mode,
+   when packet received with data ”+++” command, return to command mode,  
    this instruction should be use on transparent mode and single connection mode  
 ## 7. multi connection: AT+CIPCLOSE=: close TCP/UDP,
    return OK/Link is not;
    id: connection id that should be closed, whe id=5 close all connections(server modle id=5 is invalid)  
 ## 8. single connection :AT+CIPCLOSE: close TCP/UDP, return, OK/ERROR/unlink  
 ## 9. AT+CIFSR: get localhost IP address, return +CIFSR: OK/ERROR, IP addr: local IP(station), AP mode invalid  
-## 10. AT+CIPMUX=: start multi connection, 
+## 10. AT+CIPMUX=: start multi connection,  
    return OK/Link isbuilded;  
    mode:  
    0. single connection mode;  
@@ -213,4 +213,4 @@ ecn:
 ## 15. multi connection mode +IPD,  
 
 page bellow for reference
-[at instructs for reference](http://www.51hei.com/bbs/dpj-122021-1.html "ESP8266 AT Instructs")
+[at instructs for reference](http://www.51hei.com/bbs/dpj-122021-1.html "ESP8266 AT Instructs")  
