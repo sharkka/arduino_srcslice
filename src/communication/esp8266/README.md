@@ -70,3 +70,5 @@ VCC -- 3.3v
 * //非透传模式  
 * AP+CIPSEND                                  //之后就可以透传了  
 * AP+CIPSEND=0，10  
+
+![Alt text](https://github.com/sharkka/arduino_srcslice/blob/master/src/communication/esp8266/ESP8266-01S.jpg?raw=true "ESP8266-01S")  
