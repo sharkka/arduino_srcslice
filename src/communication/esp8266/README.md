@@ -37,15 +37,15 @@ Pin Connection:
 ESP8266  |   CP2104  
 +--------+----------+  
 GND      --  GND  
-GPIO2    --  OVERHANG  
+GPIO2    --  dangling  
 GPIO0    --  GND  
 URXD     --  RXD  
 UTXD     --  TXD  
 CH_PD    --  3.3v  
-RST      --  OVERHANG  
+RST      --  dangling  
 VCC      --  3.3v  
 
-*** running mode PIO0 should be overhanged ***
+*** running mode PIO0 should be danglinged ***
 
 * ***For AP Configuration:***  
 * AT+CWMODE=2  
