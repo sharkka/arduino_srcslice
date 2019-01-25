@@ -212,5 +212,13 @@ ecn:
    return IPD & data, connection id, data length, data received  
 ## 15. multi connection mode +IPD,  
 
++ AT+RESTORE            -- restore  
++ AT+UART=9600,8,1,0,0  -- modify baud rate  
++ AT+CWJAP?             -- view current connected route state  
++ AT+CWMODE_DEF=1       -- configure WiFi as station mode  
++ AT+CIPMUX=1           -- configure multi connection, so you can start TCP server  
++ AT+CIPSERVER=1,5000   -- start TCP server  
++ AT+CIPSERVER=0,5000   -- start TCP server  
+
 page bellow for reference
 [at instructs for reference](http://www.51hei.com/bbs/dpj-122021-1.html "ESP8266 AT Instructs")  
