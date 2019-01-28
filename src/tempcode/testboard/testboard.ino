@@ -4,7 +4,7 @@
  */
 
 int testled = 13;
-int timespan = 100;
+int timespan = 500;
 
 void setup() {
     pinMode(testled, OUTPUT);
