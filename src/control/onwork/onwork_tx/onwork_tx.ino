@@ -1,6 +1,11 @@
 /**
  * @File     onwork.h
- * @Brief
+ * @Brief    Pin Connection:
+ *           MISO  --  MISO
+ *           MOSI  --  MOSI
+ *           SCLK  --  SCLK
+ *           CE(3) --  8
+ *           CSN(4)--  7
  * @DateTime 2019/1/22 15:39:47
  * @Modify   2019/1/22 15:39:52
  * @Author   Anyz

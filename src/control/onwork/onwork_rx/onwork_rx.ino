@@ -1,6 +1,12 @@
 /**
  * @File     onwork_rx.h
  * @Brief    receive joytick data
+ *           Pin Connection:
+ *           MISO  --  MISO
+ *           MOSI  --  MOSI
+ *           SCLK  --  SCLK
+ *           CE(3) --  8
+ *           CSN(4)--  7
  * @DateTime 2019/1/22 15:39:47
  * @Modify   2019/1/22 15:39:52
  * @Author   Anyz
@@ -52,14 +58,14 @@ static int ctrlPower = -1;
  */
 static void controlSteeringEngine(int x) {
     //int angle = (x - 512) / 511.0 * 42;
-    int angle = (1023 - x - 512) / 511.0 * 42;
-    Serial.println(angle);
     //if (angle >= 0) {
     //    steeringServo.write(90 + angle);
     //} else {
-        steeringServo.write(90 + angle);
     //}
     //delay(30);
+    int angle = (1023 - x - 512) / 511.0 * 42;
+    steeringServo.write(90 + angle);
+    Serial.println(angle);
 }
 /**
  * @Method   controlMotionEngine
