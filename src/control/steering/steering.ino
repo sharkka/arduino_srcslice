@@ -20,11 +20,11 @@ void loop() {
     Serial.println("running...");
     myservo.write(90);
     delay(900);
-    for (int i = 90; i <= 180; i++) {
+    for (int i = 90; i <= 132; i++) {
         myservo.write(i);
         delay(20);
     }
-    for (int i = 180; i > 0; i--) {
+    for (int i = 132; i > 48; i--) {
         myservo.write(i);
         delay(20);
     }

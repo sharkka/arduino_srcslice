@@ -35,7 +35,11 @@ static int motorREnable = 13;
 static int motorLEnable = 14;
 static int alarmRis     = 15;
 static int alarmLis     = 16;
+static int dtPwmPin     = 3;
 static Servo steeringServo;
+static Servo enginePowerServo;
+
+static int ctrlPower = -1;
 
 /**
  * @Method   controlSteeringEngine
@@ -47,12 +51,15 @@ static Servo steeringServo;
  * @return   {[type]} [description]
  */
 static void controlSteeringEngine(int x) {
-    int angle = (x - 512) / 511.0 * 60;
-    if (angle >= 0) {
+    //int angle = (x - 512) / 511.0 * 42;
+    int angle = (1023 - x - 512) / 511.0 * 42;
+    Serial.println(angle);
+    //if (angle >= 0) {
+    //    steeringServo.write(90 + angle);
+    //} else {
         steeringServo.write(90 + angle);
-    } else {
-        steeringServo.write(90 - angle);
-    }
+    //}
+    //delay(30);
 }
 /**
  * @Method   controlMotionEngine
@@ -64,7 +71,7 @@ static void controlSteeringEngine(int x) {
  * @return   {[type]} [description]
  */
 static void controlMotionEngine(int y) {
-    if (y > 513) {
+    /*if (y > 513) {
         digitalWrite(motorREnable, HIGH);
         digitalWrite(motorLEnable, LOW);
         analogWrite(motorRPinPwm, map(y, 512, 1023, 0, 255));
@@ -72,8 +79,18 @@ static void controlMotionEngine(int y) {
         digitalWrite(motorREnable, LOW);
         digitalWrite(motorLEnable, HIGH);
         analogWrite(motorLPinPwm, 255 - map(y, 0, 512, 0, 255));
-    }
+    }*/
     // 510,511,512 will ignore
+    //analogWrite(dtPwmPin, map(y, 512, 1023, 0, 255));
+    
+    double T = 2000;
+    long t0 = micros();
+    double len = 1000 * (0.9 + y * (2.1 - 0.9) / 1023.0);
+    
+    enginePowerServo.writeMicroseconds(len);
+    int leftMs = (int)(t0 + T - micros());
+
+    delayMicroseconds(leftMs);
 }
 /**
  * @Method   controlBrakeSystem
@@ -113,6 +130,7 @@ void setup() {
     pinMode(motorLPinPwm, OUTPUT);
     pinMode(motorREnable, OUTPUT);
     pinMode(motorLEnable, OUTPUT);
+    enginePowerServo.attach(dtPwmPin);
 }
 /**
  * @Method   loop
